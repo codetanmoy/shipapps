@@ -476,7 +476,9 @@ export function PricingSection() {
                                 </p>
 
                                 <Button variant="outline" className="mt-8 w-full border-border/40 bg-background" size="lg">
-                                    Add Launch Assist
+                                    <Link href="#">
+                                        Add Launch Assist
+                                    </Link>
                                 </Button>
                             </div>
                         </div>
@@ -560,10 +562,10 @@ export function PhilosophySection() {
 
 
                                 <div className="mt-4 rounded-[18px] border border-border/40 bg-background p-5 text-center">
-                                    <p className="text-xl font-semibold tracking-tight text-foreground md:text-2xl">
-                                        <p>This isn’t about experimentation.</p>
-                                        <p>It’s about finishing.</p>
-                                    </p>
+                                    <div className="text-xl font-semibold tracking-tight text-foreground md:text-2xl">
+                                        <div>This isn’t about experimentation.</div>
+                                        <div>It’s about finishing.</div>
+                                    </div>
                                 </div>
 
                                 <p className="mt-5 text-sm leading-relaxed text-muted-foreground md:text-base">

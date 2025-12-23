@@ -23,7 +23,7 @@ export default function ServicePage() {
               <p className="mt-5 text-xl leading-relaxed text-muted-foreground md:text-2xl">
                 A fixed-scope iOS MVP — designed and built in 14 days.
               </p>
-              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <div className="mt-10 flex flex-col items-center gap-4 sm:inline-grid sm:grid-cols-[auto_auto] sm:items-center sm:gap-x-12 sm:gap-y-2">
                 <Button size="lg" className="h-12 px-8 text-base" asChild>
                   <Link href="#request">
                     Request availability <ArrowRight className="ml-2 h-4 w-4" />
@@ -35,6 +35,10 @@ export default function ServicePage() {
                 >
                   Prefer ShipApps instead?
                 </Link>
+                <p className="text-center text-sm text-muted-foreground">
+                  Built using the same proven iOS foundation behind ShipApps.
+                </p>
+                <span className="hidden sm:block" />
               </div>
               <p className="mt-10 text-sm text-muted-foreground">
                 You get a working app — not a prototype — ready for TestFlight and App Store submission.
@@ -126,12 +130,15 @@ export default function ServicePage() {
                               </li>
                             ))}
                           </ul>
-                          <div className="mt-6 rounded-[18px] border border-border/40 bg-background p-5 text-sm text-muted-foreground">
-                            <div className="font-medium text-foreground">Payment</div>
-                            <div className="mt-2">$5,000 upfront</div>
-                            <div className="mt-1">(or 50% upfront + 50% on TestFlight delivery)</div>
+                        <div className="mt-6 rounded-[18px] border border-border/40 bg-background p-5 text-sm text-muted-foreground">
+                          <div className="font-medium text-foreground">Payment</div>
+                          <div className="mt-2">$5,000 upfront</div>
+                          <div className="mt-1">(or 50% upfront + 50% on TestFlight delivery)</div>
+                          <div className="mt-3 text-xs text-muted-foreground">
+                            You’ll see real progress within the first few days.
                           </div>
                         </div>
+                      </div>
 
                         <div className="rounded-[22px] bg-muted/35 p-7">
                           <h3 className="text-lg font-semibold">What this is not</h3>
@@ -168,7 +175,7 @@ export default function ServicePage() {
                 <div className="mx-auto max-w-[820px] text-center">
                   <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">Availability</h2>
                   <p className="mt-4 text-lg text-muted-foreground md:text-xl">
-                    I only take 1–2 MVP sprints at a time. If this fits your needs and timeline, reach out.
+                    I only take 1–2 MVP sprints at a time. If this fits your needs and timeline, request availability.
                   </p>
                 </div>
 
@@ -184,4 +191,3 @@ export default function ServicePage() {
     </div>
   )
 }
-

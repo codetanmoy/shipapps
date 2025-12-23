@@ -101,7 +101,10 @@ export function MvpSprintRequest() {
           {submitError && <p className="text-sm text-destructive">{submitError}</p>}
 
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs text-muted-foreground">No spam. If it’s a fit, you’ll get a reply.</p>
+            <div className="text-xs text-muted-foreground">
+              <div>No spam. If it’s a fit, you’ll get a reply.</div>
+              <div className="mt-1">If it’s not a fit, I’ll let you know — no back-and-forth.</div>
+            </div>
             <Button type="submit" disabled={!canSubmit || submitting}>
               <Mail className="mr-2 h-4 w-4" />
               {submitting ? "Sending…" : "Request availability"}
@@ -117,4 +120,3 @@ export function MvpSprintRequest() {
     </div>
   )
 }
-
