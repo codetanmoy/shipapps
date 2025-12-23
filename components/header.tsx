@@ -19,6 +19,7 @@ export function Header() {
                     <Link href="#ios" className="hover:text-foreground transition-colors">iOS</Link>
                     <Link href="#included" className="hover:text-foreground transition-colors">Included</Link>
                     <Link href="#pricing" className="hover:text-foreground transition-colors">Pricing</Link>
+                    <Link href="/service" className="hover:text-foreground transition-colors">MVP Sprint</Link>
                     <Link href="#how" className="hover:text-foreground transition-colors">How</Link>
                     <Link href="#why" className="hover:text-foreground transition-colors">Why</Link>
                 </nav>

@@ -56,13 +56,13 @@ export default function Home() {
         </Section>
 
         <DemoTrustLayerSection />
+        <PhilosophySection />
         <LogoClusterSection />
         <BuiltForIOSSection />
         <FeaturesSection />
         <ScopeSection />
         <PricingSection />
         <HowItWorksSection />
-        <PhilosophySection />
       </main>
       <Footer />
     </div>

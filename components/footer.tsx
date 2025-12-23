@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Ship } from "lucide-react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/ui/layout"
 
@@ -24,14 +24,14 @@ export function Footer() {
                     </div>
 
                     <div className="flex items-center gap-2 font-bold text-xl mb-6">
-                        <Ship className="h-6 w-6" />
+                        <Image src="/shipapps.png" alt="ShipApps" width={24} height={24} className="h-6 w-6" />
                         <span>ShipApps</span>
                     </div>
 
                     <div className="flex gap-8 text-sm text-muted-foreground">
                         <Link href="#" className="hover:text-foreground">Terms</Link>
                         <Link href="#" className="hover:text-foreground">Privacy</Link>
-                        <Link href="#" className="hover:text-foreground">Contact</Link>
+                        <Link href="/service#request" className="hover:text-foreground">Contact</Link>
                     </div>
 
                     <p className="mt-8 text-xs text-muted-foreground">

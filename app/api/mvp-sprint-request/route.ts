@@ -23,10 +23,10 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 })
   }
 
-  const { firstName, email, appType } = payload as {
+  const { firstName, email, notes } = payload as {
     firstName?: unknown
     email?: unknown
-    appType?: unknown
+    notes?: unknown
   }
 
   if (typeof firstName !== "string" || firstName.trim().length === 0) {
@@ -37,32 +37,37 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 })
   }
 
-  if (typeof appType !== "string" || appType.trim().length === 0) {
-    return NextResponse.json({ error: "Please select a demo app type." }, { status: 400 })
+  if (typeof notes !== "string") {
+    return NextResponse.json({ error: "Invalid request body." }, { status: 400 })
+  }
+
+  if (notes.length > 4000) {
+    return NextResponse.json({ error: "Please keep the description under 4,000 characters." }, { status: 400 })
   }
 
   try {
     await insertLead({
-      kind: "testflight",
+      kind: "mvp_sprint",
       firstName: firstName.trim(),
       email: email.trim(),
-      appType: appType.trim(),
+      notes: notes.trim(),
+      budgetUsd: 5000,
       source: "shipapps-site",
       userAgent: req.headers.get("user-agent"),
       ip: getClientIp(req),
     })
   } catch (error) {
     if (process.env.NODE_ENV !== "production") {
-      console.error("[testflight-request][db]", error)
+      console.error("[mvp-sprint-request][db]", error)
     }
     return NextResponse.json({ error: "Could not save your request. Please try again." }, { status: 500 })
   }
 
   if (process.env.NODE_ENV !== "production") {
-    console.log("[testflight-request]", {
+    console.log("[mvp-sprint-request]", {
       firstName: firstName.trim(),
       email: email.trim(),
-      appType: appType.trim(),
+      notes: notes.trim(),
     })
   }
 
