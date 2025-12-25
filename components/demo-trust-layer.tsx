@@ -4,7 +4,6 @@ import * as React from "react"
 import Image from "next/image"
 import { X, ChevronRight, Mail, BookOpen, Activity, Wrench, CheckSquare2 } from "lucide-react"
 import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Container, Section } from "@/components/ui/layout"
 import { cn } from "@/lib/utils"
@@ -13,6 +12,7 @@ type DemoAppType = "content" | "tracking" | "utility" | "productivity"
 
 type DemoConfig = {
     key: DemoAppType
+    kicker: string
     title: string
     headline: string
     examples: string[]
@@ -25,41 +25,45 @@ type DemoConfig = {
 const DEMO: DemoConfig[] = [
     {
         key: "content",
-        title: "Content app demo",
-        headline: "Content\napps.",
-        examples: ["Reader", "Newsletter", "Courses"],
+        kicker: "Pre-shipped app",
+        title: "Single-flow content app",
+        headline: "Single-flow\ncontent app",
+        examples: ["One feed", "One interaction", "One exit"],
         icon: BookOpen,
-        summary: "Onboarding → paywall → browse content → save → profile.",
+        summary: "One feed → one interaction → one exit.",
         videoSrc: "/marketing/demos/content-app.mp4",
         posterSrc: "/marketing/preview-onboarding.svg",
     },
     {
         key: "tracking",
-        title: "Habit / tracking demo",
-        headline: "Tracking\napps.",
-        examples: ["Habit tracker", "Wellness", "Journaling"],
+        kicker: "Pre-shipped app",
+        title: "One-metric tracking app",
+        headline: "One-metric\ntracking app",
+        examples: ["One metric", "One log", "One insight"],
         icon: Activity,
-        summary: "Daily tracking, streaks, reminders, and clean history views.",
+        summary: "One metric → one log → one insight.",
         videoSrc: "/marketing/demos/tracking-app.mp4",
         posterSrc: "/marketing/preview-analytics.svg",
     },
     {
         key: "utility",
-        title: "Utility / productivity demo",
-        headline: "Utility\napps.",
-        examples: ["Timer", "Scanner", "Calculator"],
+        kicker: "Pre-shipped app",
+        title: "Single-purpose utility",
+        headline: "Single-purpose\nutility",
+        examples: ["One input", "One action", "One result"],
         icon: Wrench,
-        summary: "Fast flows, local-first feel, and a simple upgrade path.",
+        summary: "One input → one action → one result.",
         videoSrc: "/marketing/demos/utility-app.mp4",
         posterSrc: "/marketing/preview-subscriptions.svg",
     },
     {
         key: "productivity",
-        title: "Productivity app demo",
-        headline: "Productivity\napps.",
-        examples: ["Tasks", "Projects", "Routines"],
+        kicker: "Pre-shipped app",
+        title: "One-action productivity tool",
+        headline: "One-action\nproductivity tool",
+        examples: ["One task", "One timer", "One completion"],
         icon: CheckSquare2,
-        summary: "Projects → tasks → reminders → clean daily workflow.",
+        summary: "One task → one timer → one completion.",
         videoSrc: "/marketing/demos/productivity-app.mp4",
         posterSrc: "/marketing/hero-mock.svg",
     },
@@ -387,11 +391,11 @@ export function DemoTrustLayerSection(props: { className?: string }) {
                 <Card className="rounded-[28px] border-border/40 bg-card shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
                     <div className="px-6 py-10 md:px-12 md:py-14">
                         <div className="mx-auto max-w-[980px]">
-                            <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">See it working.</h2>
+                            <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">See finished apps.</h2>
                             <p className="mt-4 text-lg text-muted-foreground md:text-xl">
-                                Pick an app type. Watch a short demo. Request TestFlight inside the demo.
+                                Try complete, fixed-scope iOS apps. What you see is exactly what you buy.
                             </p>
-                            <p className="mt-4 text-sm  text-muted-foreground">No login. No newsletter checkbox.</p>
+                            <p className="mt-4 text-sm text-muted-foreground">No login. No newsletter. No customization.</p>
                         </div>
 
                         <div className="mt-10">
@@ -435,8 +439,8 @@ export function DemoTrustLayerSection(props: { className?: string }) {
                                             />
 
                                             <div className="relative flex h-full flex-col">
-                                                <div className={cn("text-sm font-semibold", isDark ? "text-white/90" : "text-foreground")}>
-                                                    {demo.title}
+                                                <div className={cn("text-sm font-semibold", isDark ? "text-white/80" : "text-muted-foreground")}>
+                                                    {demo.kicker}
                                                 </div>
 
                                                 <h3
@@ -456,21 +460,8 @@ export function DemoTrustLayerSection(props: { className?: string }) {
                                                     <div className={cn("text-xs font-medium", isDark ? "text-white/70" : "text-muted-foreground")}>
                                                         Examples
                                                     </div>
-                                                    <div className="mt-3 flex flex-wrap gap-2">
-                                                        {demo.examples.map((example) => (
-                                                            <Badge
-                                                                key={example}
-                                                                variant="secondary"
-                                                                className={cn(
-                                                                    "border text-xs font-medium",
-                                                                    isDark
-                                                                        ? "border-white/15 bg-white/10 text-white"
-                                                                        : "border-border/40 bg-background text-foreground"
-                                                                )}
-                                                            >
-                                                                {example}
-                                                            </Badge>
-                                                        ))}
+                                                    <div className={cn("mt-3 text-sm", isDark ? "text-white/85" : "text-foreground/80")}>
+                                                        {demo.examples.join(" · ")}
                                                     </div>
 
                                                     <div className="mt-8">
@@ -483,7 +474,7 @@ export function DemoTrustLayerSection(props: { className?: string }) {
                                                             )}
                                                             variant={isDark ? "secondary" : "default"}
                                                         >
-                                                            Watch demo <ChevronRight className="ml-2 h-4 w-4" />
+                                                            View app <ChevronRight className="ml-2 h-4 w-4" />
                                                         </Button>
                                                     </div>
                                                 </div>
@@ -492,6 +483,10 @@ export function DemoTrustLayerSection(props: { className?: string }) {
                                     )
                                 })}
                             </div>
+
+                            <p className="mt-8 text-sm text-muted-foreground">
+                                All apps are sold as-is. Optional App Store submission available.
+                            </p>
                         </div>
                     </div>
                 </Card>

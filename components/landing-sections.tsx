@@ -404,7 +404,7 @@ export function PricingSection() {
                             <p className="mt-3 text-sm text-muted-foreground">
                                 Want proof first?{" "}
                                 <Link href="#demo" className="text-primary hover:underline underline-offset-4">
-                                    Watch the demos
+                                    Try the apps
                                 </Link>
                                 .
                             </p>
@@ -414,8 +414,10 @@ export function PricingSection() {
                             <div className="rounded-[22px] bg-muted/35 p-7">
                                 <div className="flex items-start justify-between gap-6">
                                     <div>
-                                        <h3 className="text-lg font-semibold">ShipApps</h3>
-                                        <p className="mt-1 text-sm text-muted-foreground">The complete iOS app launch system.</p>
+                                        <h3 className="text-lg font-semibold">ShipApps — Pre-shipped iOS Apps</h3>
+                                        <p className="mt-1 text-sm text-muted-foreground">
+                                            Finished, opinionated iOS apps with frozen scope. What you see is exactly what you buy.
+                                        </p>
                                     </div>
                                 </div>
 
@@ -424,22 +426,40 @@ export function PricingSection() {
                                     <div className="text-sm font-medium text-muted-foreground">one-time</div>
                                 </div>
 
-                                <ul className="mt-6 space-y-3 text-muted-foreground">
-                                    {[
-                                        "Full iOS app launch system",
-                                        "Complete source code",
-                                        "Working demo app",
-                                        "Lifetime access to the purchased version",
-                                    ].map((item) => (
-                                        <li key={item} className="flex items-start gap-3">
-                                            <Check className="mt-0.5 h-5 w-5 shrink-0 text-foreground/70" />
-                                            <span>{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
+                                <div className="mt-6">
+                                    <div className="text-sm font-semibold text-foreground">Includes</div>
+                                    <ul className="mt-4 space-y-3 text-muted-foreground">
+                                        {[
+                                            "Pre-shipped iOS app (as shown)",
+                                            "Full source code",
+                                            "Working TestFlight build",
+                                            "Lifetime access to the purchased version",
+                                        ].map((item) => (
+                                            <li key={item} className="flex items-start gap-3">
+                                                <Check className="mt-0.5 h-5 w-5 shrink-0 text-foreground/70" />
+                                                <span>{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    <div className="mt-6 text-sm font-semibold text-foreground">Does not include</div>
+                                    <ul className="mt-4 space-y-3 text-muted-foreground">
+                                        {[
+                                            "Customization",
+                                            "Feature changes",
+                                            "Ongoing support",
+                                            "Future updates",
+                                        ].map((item) => (
+                                            <li key={item} className="flex items-start gap-3">
+                                                <X className="mt-0.5 h-5 w-5 shrink-0 text-foreground/50" />
+                                                <span>{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
 
                                 <Button className="mt-8 w-full" size="lg" asChild>
-                                    <Link href="#pricing">Get ShipApps</Link>
+                                    <Link href="#pricing">Get ShipApps →</Link>
                                 </Button>
                             </div>
 
@@ -447,7 +467,9 @@ export function PricingSection() {
                                 <div className="flex items-start justify-between gap-6">
                                     <div>
                                         <h3 className="text-lg font-semibold">Launch Assist</h3>
-                                        <p className="mt-1 text-sm text-muted-foreground">Optional help crossing the final line.</p>
+                                        <p className="mt-1 text-sm text-muted-foreground">
+                                            One-time App Store submission help for a pre-shipped app.
+                                        </p>
                                     </div>
                                     <Badge variant="secondary" className="bg-background text-foreground border border-border/40">Optional</Badge>
                                 </div>
@@ -457,27 +479,40 @@ export function PricingSection() {
                                     <div className="text-sm font-medium text-muted-foreground">one-time</div>
                                 </div>
 
-                                <ul className="mt-6 space-y-3 text-muted-foreground">
-                                    {[
-                                        "App Store submission & approval support",
-                                        "App Store listing copy",
-                                        "Screenshot design (template-based)",
-                                        "ASO baseline setup",
-                                    ].map((item) => (
-                                        <li key={item} className="flex items-start gap-3">
-                                            <Check className="mt-0.5 h-5 w-5 shrink-0 text-foreground/70" />
-                                            <span>{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
+                                <div className="mt-6">
+                                    <div className="text-sm font-semibold text-foreground">Includes</div>
+                                    <ul className="mt-4 space-y-3 text-muted-foreground">
+                                        {[
+                                            "Bundle ID & App Store Connect setup",
+                                            "Basic App Store listing copy",
+                                            "Screenshot setup (template-based)",
+                                            "App submission to Apple",
+                                        ].map((item) => (
+                                            <li key={item} className="flex items-start gap-3">
+                                                <Check className="mt-0.5 h-5 w-5 shrink-0 text-foreground/70" />
+                                                <span>{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
 
-                                <p className="mt-6 text-sm text-muted-foreground">
-                                    Launch Assist does not include marketing or ranking guarantees.
-                                </p>
+                                    <div className="mt-6 text-sm font-semibold text-foreground">Does not include</div>
+                                    <ul className="mt-4 space-y-3 text-muted-foreground">
+                                        {[
+                                            "Feature or UI changes",
+                                            "Iterations or revisions",
+                                            "Marketing or ranking guarantees",
+                                        ].map((item) => (
+                                            <li key={item} className="flex items-start gap-3">
+                                                <X className="mt-0.5 h-5 w-5 shrink-0 text-foreground/50" />
+                                                <span>{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
 
                                 <Button variant="outline" className="mt-8 w-full border-border/40 bg-background" size="lg">
                                     <Link href="#">
-                                        Add Launch Assist
+                                        Add Launch Assist →
                                     </Link>
                                 </Button>
                             </div>
@@ -595,7 +630,7 @@ export function PhilosophySection() {
                                             {[
                                                 "A clean, working foundation.",
                                                 "A way to start with clarity instead of chaos.",
-                                                "A chance to see it working before you buy — via video demo or TestFlight.",
+                                                "A chance to see finished apps before you buy — via video demo or TestFlight.",
                                             ].map((item) => (
                                                 <li key={item} className="flex items-start gap-3">
                                                     <Check className="mt-0.5 h-5 w-5 shrink-0 text-foreground/70" />
@@ -614,7 +649,7 @@ export function PhilosophySection() {
                                 </p>
 
                                 <p className="mt-4 text-xs text-muted-foreground md:text-sm">
-                                    You can see it working before you buy — via{" "}
+                                    You can see finished apps before you buy — via{" "}
                                     <span className="font-medium text-foreground">video demo</span> or{" "}
                                     <span className="font-medium text-foreground">TestFlight</span>.
                                 </p>
